@@ -1,58 +1,68 @@
 # MCP Vision & Input Control
 
-A Model Context Protocol (MCP) server that enables LLMs to:
-1.  **See the screen** (via screenshots).
-2.  **Control the mouse** (move, click, drag, scroll).
-3.  **Control the keyboard** (type, key combinations).
+Hey there! 👋
 
-## Prerequisites
+This is a Model Context Protocol (MCP) server that basically gives your AI superpowers on your computer. It lets the AI:
+1.  **See what you see** (by taking screenshots).
+2.  **Use your mouse** (move, click, drag, scroll).
+3.  **Type for you** (keyboard input).
 
--   **Node.js**: v16 or higher.
--   **macOS Permissions**:
-    -   **Screen Recording**: Required for `screen_capture`.
-    -   **Accessibility**: Required for `mouse` and `keyboard` control.
+Think of it as giving your AI agent a pair of eyes and hands.
 
-## Installation
+## getting started
 
-1.  Clone or download this repository.
-2.  Install dependencies:
+You'll need **Node.js v16+**.
+
+Also, since this tool literally controls your mouse and sees your screen, macOS is going to ask for permission. You'll need to say "Yes" to:
+-   **Screen Recording** (so it can see).
+-   **Accessibility** (so it can click and type).
+
+## installation
+
+It's pretty standard stuff:
+
+1.  Clone this repo.
+2.  Install the dependencies:
     ```bash
     npm install
     ```
-3.  Build the project:
+3.  Build it:
     ```bash
     npm run build
     ```
 
-## Configuration
+## setup
 
-Add the following to your MCP client configuration (e.g., `claude_desktop_config.json` or Cursor settings):
+Just add this to your MCP config (like `claude_desktop_config.json` or whatever you're using):
 
 ```json
 {
   "mcpServers": {
     "vision-input": {
-      "command": "/path/to/your/node",
+      "command": "node",
       "args": [
-        "/absolute/path/to/mcp_watch_screen_and_interact_with_keyboard_mouse/build/index.js"
+        "/ABSOLUTE/PATH/TO/THIS/REPO/build/index.js"
       ]
     }
   }
 }
 ```
+*(Make sure to change that path to where you actually put this folder!)*
 
-## Tools
+## capabilities
 
--   `screen_capture`: Get a base64 encoded JPEG of the screen.
--   `calculate_screen_dimensions`: Get screen size.
--   `mouse_move(x, y)`: Move cursor.
--   `mouse_click(button, double)`: Click mouse.
--   `mouse_drag(x, y)`: Drag to coordinates.
--   `mouse_scroll(magnitude)`: Scroll wheel.
--   `keyboard_type(text)`: Type text.
--   `keyboard_press(key, modifiers)`: Press key combos (e.g., `cmd` + `c`).
+Here's what it can do out of the box:
 
-## Troubleshooting
+-   **`screen_capture`**: Snaps a picture of your screen so the AI knows what's going on.
+-   **`calculate_screen_dimensions`**: Checks how big your monitor is.
+-   **`mouse_move`** / **`mouse_click`** / **`mouse_drag`**: Does exactly what it says on the tin.
+-   **`mouse_scroll`**: Scrolls up or down.
+-   **`keyboard_type`**: Types text out.
+-   **`keyboard_press`**: Hits specific keys (like `cmd+c` to copy).
 
--   **Permission Denied / Grey Screen**: Ensure the application running the server (e.g., Terminal, Cursor, Claude) has Screen Recording permission in System Settings.
--   **Input Not Working**: Ensure Accessibility permission is granted.
+## trouble?
+
+-   **Grey/Black Screen?** macOS is probably blocking the screen recording. Check System Settings > Privacy & Security > Screen Recording.
+-   **Can't Click?** Check System Settings > Privacy & Security > Accessibility.
+
+Enjoy building cool stuff! 🚀
