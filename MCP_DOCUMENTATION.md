@@ -67,8 +67,12 @@ Use `calculate_screen_dimensions` first so the AI knows if it's working on a lap
 
 ## troubleshooting
 
--   **Grey/Black Screen?** macOS privacy settings are blocking the view. Go to `System Settings -> Privacy & Security -> Screen Recording` and toggle the permission for your terminal/app.
--   **Mouse won't move?** Same thing, but check `Accessibility` in privacy settings.
+-   **Grey/Black Screen?**
+    -   **macOS:** Privacy settings are blocking the view. Go to `System Settings -> Privacy & Security -> Screen Recording` and toggle your terminal/app.
+    -   **Linux:** Ensure you are using X11 (Wayland support varies).
+-   **Mouse won't move?**
+    -   **macOS:** Check `Accessibility` in privacy settings.
+    -   **Linux/Windows:** Ensure your user has permissions to control input devices.
 -   **"Module not found"?** Did you remember to run `npm install` and `npm run build`?
 
 Stay safe and have fun!

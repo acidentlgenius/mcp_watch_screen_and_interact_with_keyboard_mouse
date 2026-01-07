@@ -13,9 +13,20 @@ Think of it as giving your AI agent a pair of eyes and hands.
 
 You'll need **Node.js v16+**.
 
-Also, since this tool literally controls your mouse and sees your screen, macOS is going to ask for permission. You'll need to say "Yes" to:
--   **Screen Recording** (so it can see).
--   **Accessibility** (so it can click and type).
+### Platform Specifics
+
+**macOS:**
+Since this tool controls your mouse and sees your screen, macOS will ask for permission. You'll need to allow:
+-   **Screen Recording**
+-   **Accessibility**
+
+**Windows:**
+-   You may need to install build tools for `robotjs`: `npm install --global --production windows-build-tools`
+
+**Linux:**
+-   You will likely need X11 libraries. For Debian/Ubuntu: `sudo apt-get install libxtst-dev libpng++-dev`
+
+
 
 ## installation
 
